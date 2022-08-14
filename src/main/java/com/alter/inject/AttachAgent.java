@@ -14,10 +14,6 @@ public class AttachAgent {
      * @param args 参数
      * @throws Exception 异常
      */
-    //使用示例 java -jar shirohook.jar spring-shiro Vm1zrymqRIBQ8P4GrZk9cA==
-    //注意目标的平台，目标时liunx的，要将tool包换成linux的tool，然后重新打包
-    //运行之前先发送一个带rememberMe的数据包
-    //java.io.IOException: Non-numeric value found - int expected 报错原因是攻击端的jdk版本与受害端的不同
     public static void main(String[] args) throws Exception {
         String packageName = args[0];//例如"srpingboot-shiro-0.0.1-SNAPSHOT.jar"
         String payload = args[1];
