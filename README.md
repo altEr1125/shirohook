@@ -40,4 +40,5 @@ java -jar shirohook.jar spring-shiro Vm1zrymqRIBQ8P4GrZk9cA==
 
 
 :warning: 初次使用一定要先发送带`rememberMe`的数据包，让web服务加载AbstractRememberMeManager类及其方法
+
 :warning: 不同的平台（Windows、Linux、OS X 等），不同的版本的 JRE，能正常使用的 `tools.jar` 的版本都是不同的，因此在使用的时候，需要注意匹配。
